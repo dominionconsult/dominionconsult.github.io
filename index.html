@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Dominion Consult | Innovative Development Solutions</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #1f2d3d;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navigation */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #0f3b2c;
+    }
+
+    .logo span {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #2c7a4d;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e50;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e6f5c;
+    }
+
+    /* Buttons & general */
+    .btn-primary {
+      background-color: #1e6f5c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0f4c3f;
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a2e3a;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #5b6e8c;
+      margin-bottom: 48px;
+      max-width: 720px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(105deg, #f8fbf9 0%, #ffffff 100%);
+      padding: 70px 0 80px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1a3b32;
+      margin-bottom: 20px;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #2c7a4d;
+      font-weight: 500;
+      margin-bottom: 20px;
+      border-left: 4px solid #1e6f5c;
+      padding-left: 16px;
+    }
+
+    .hero-badge {
+      background: #e9f3ef;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e6f5c;
+      margin-bottom: 18px;
+    }
+
+    /* cards grid */
+    .services-grid, .team-grid, .projects-grid, .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .service-card, .value-card, .team-card, .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transition: 0.25s ease;
+      border: 1px solid #eef2f0;
+    }
+
+    .service-card:hover, .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-icon {
+      font-size: 2.4rem;
+      color: #1e6f5c;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3, .team-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .value-card {
+      text-align: center;
+      background: #fafdfb;
+    }
+
+    .value-card i {
+      font-size: 2rem;
+      color: #2c7a4d;
+      margin-bottom: 16px;
+    }
+
+    /* Team */
+    .team-card {
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 110px;
+      height: 110px;
+      background: #d9f0e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2.8rem;
+      color: #1e6f5c;
+    }
+
+    .team-title {
+      color: #4b6a5c;
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* sections background */
+    .bg-light {
+      background-color: #f9fbfa;
+    }
+
+    .stats {
+      background: #1e3b32;
+      color: white;
+      padding: 56px 0;
+    }
+
+    .partner-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .partner-item {
+      background: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1f2d3d;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: #0e2a24;
+      color: #cddfd9;
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .contact-info i {
+      width: 30px;
+      color: #86b3a4;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2b4f44;
+      padding-top: 24px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    .text-accent {
+      color: #1e6f5c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h1>Dominion Consult</h1>
+          <span>innovate · include · transform</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#projects">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-leaf"></i> Since 2019 · Tanzania</div>
+            <h1>Development innovations through evidence & inclusion</h1>
+            <div class="hero-tagline">Research · Gender mainstreaming · Strategic frameworks · Data-driven solutions</div>
+            <p style="margin-bottom: 32px; font-size: 1.05rem; color: #2d4a5c;">Empowering institutions & communities across Africa to achieve sustainable, transformative outcomes.</p>
+            <a href="#contact" class="btn-primary"><i class="fas fa-handshake"></i> Partner with us</a>
+          </div>
+          <div style="flex: 0.8; background: #e4f4ef; border-radius: 48px; padding: 36px; text-align: center;">
+            <i class="fas fa-chart-line" style="font-size: 4rem; color: #1e6f5c;"></i>
+            <p style="margin-top: 16px; font-weight: 600;">Multidisciplinary expertise <br> Gender | Public Health | Data Science | Agriculture | Governance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About: Mission Vision Values -->
+    <section id="about" class="container" style="padding: 80px 0;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <span class="hero-badge" style="background: #e9f3ef;">Who we are</span>
+        <h2 class="section-title">Building inclusive futures</h2>
+        <p class="section-subtitle">Dominion Consult is a Tanzanian consulting firm established in 2019, committed to evidence-based, participatory development across government, NGOs, private sector & academia.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
+        <div class="value-card"><i class="fas fa-eye"></i><h3>Vision</h3><p>To become a leading consultancy in Africa delivering transformative, equitable & sustainable social and economic development.</p></div>
+        <div class="value-card"><i class="fas fa-bullseye"></i><h3>Mission</h3><p>High-quality services in gender mainstreaming, research, training, coaching, data management & organizational strengthening to achieve sustainable outcomes.</p></div>
+        <div class="value-card"><i class="fas fa-heart"></i><h3>Core Values</h3><p>Professionalism · Inclusion · Integrity · Innovation · Evidence-based · Collaboration · Excellence · Respect for dignity.</p></div>
+      </div>
+      <div style="margin-top: 56px; background: #eef5f2; border-radius: 32px; padding: 32px;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;"><i class="fas fa-chalkboard-user"></i> Our approach</h3>
+        <p>Participatory, gender-transformative & context-sensitive methodologies. We emphasize stakeholder ownership, ethical engagement, institutional sustainability, and practical implementation strategies for lasting impact.</p>
+      </div>
+    </section>
+
+    <!-- Services / Technical expertise -->
+    <section id="services" class="bg-light" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="hero-badge">What we deliver</span>
+          <h2 class="section-title">Areas of technical expertise</h2>
+          <p class="section-subtitle">Multidisciplinary solutions tailored to your development challenges</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card"><i class="fas fa-venus-mars service-icon"></i><h3>Gender Equality & Social Inclusion</h3><p>Gender audits, transformative programming, GBV prevention, youth & women empowerment, disability mainstreaming, food & nutritional security.</p></div>
+          <div class="service-card"><i class="fas fa-chart-bar service-icon"></i><h3>Research & Assessments</h3><p>Baseline/midline/endline studies, needs assessments, participatory action research, MEL, policy & programme evaluation.</p></div>
+          <div class="service-card"><i class="fas fa-building service-icon"></i><h3>Strategic Planning & OD</h3><p>Strategic frameworks, institutional strengthening, policy development, governance support, change management.</p></div>
+          <div class="service-card"><i class="fas fa-chalkboard service-icon"></i><h3>Training, Coaching & Mentoring</h3><p>Capacity development, leadership coaching, adult learning facilitation, curriculum & manual development.</p></div>
+          <div class="service-card"><i class="fas fa-heartbeat service-icon"></i><h3>Public Health & Community Dev</h3><p>Maternal & child health, SRH, health systems strengthening, nutrition, social behavior change, community mobilization.</p></div>
+          <div class="service-card"><i class="fas fa-microchip service-icon"></i><h3>Data Science & Digital Solutions</h3><p>Data management, digital research tools, software development, database support, data visualization & reporting.</p></div>
+          <div class="service-card"><i class="fas fa-seedling service-icon"></i><h3>Environment, Agriculture & Livelihoods</h3><p>Climate resilience, sustainable agriculture, value chain development, rural development, women in agribusiness.</p></div>
+          <div class="service-card"><i class="fas fa-laptop-code service-icon"></i><h3>Software Development</h3><p>Custom software, database systems, digital platforms tailored for institutional strengthening and data-driven management.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section (Management + Associate Experts) -->
+    <section id="team" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="hero-badge">Multidisciplinary leadership</span>
+          <h2 class="section-title">Our experts</h2>
+          <p class="section-subtitle">Experienced team driving innovation, gender integration, and sustainable results</p>
+        </div>
+        <div class="team-grid">
+          <!-- Management & Leadership -->
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h3>Dr. Patricia Mwesiga</h3><div class="team-title">Managing Director</div><p>Gender & Community Development Specialist, 20+ years expertise: gender audits, strategic frameworks, policy facilitation & organizational strengthening.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-user-circle"></i></div><h3>Grace Thomas</h3><div class="team-title">Director</div><p>Strategic leadership, partnership development, institutional governance and program oversight.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-user-cog"></i></div><h3>Dorcas Lyatuu</h3><div class="team-title">General Manager</div><p>Operations, capacity development, project coordination and client relationship management.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-line"></i></div><h3>Samuel T. Joseph</h3><div class="team-title">Treasurer & Head of Data Science</div><p>Software development, data science, digital systems, database support, and financial oversight.</p></div>
+        </div>
+        <h3 style="margin: 56px 0 24px; text-align: center; font-size: 1.8rem;">Associate Experts Network</h3>
+        <div class="team-grid">
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-chart-simple"></i></div><h3>Dr. Rugazia Gonzaga Nyombi</h3><div class="team-title">Economist</div><p>Economic analysis, value chain development, livelihoods & rural development.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-users"></i></div><h3>Dr. Angela Kavishe</h3><div class="team-title">Sociologist</div><p>Social inclusion, participatory research, community dynamics & gender sociology.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-stethoscope"></i></div><h3>Dr. Owden Kabuka</h3><div class="team-title">Health & Wellness Specialist</div><p>Public health, maternal/child health, SRH programming and health systems strengthening.</p></div>
+          <div class="team-card"><div class="team-avatar"><i class="fas fa-tree"></i></div><h3>Dr. Frida Ilomo</h3><div class="team-title">Environment & Climate Change</div><p>Climate resilience, environmental conservation, sustainable agriculture, natural resource management.</p></div>
+        </div>
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: #4a6276;">+ multidisciplinary network of researchers, gender experts & development practitioners ready for each assignment.</p>
+      </div>
+    </section>
+
+    <!-- Selected Experience / Projects -->
+    <section id="projects" class="bg-light" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="hero-badge">Proven track record</span>
+          <h2 class="section-title">Key assignments & impact</h2>
+          <p class="section-subtitle">Delivering gender-transformative, data-driven solutions for government, development partners & NGOs</p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card"><i class="fas fa-gavel" style="font-size: 2rem; color: #1e6f5c;"></i><h3>Gender Audit & Gender Justice Strategic Framework</h3><p>Judiciary of Tanzania (2022-2024) – facilitated institutional audit and strategic roadmap for gender justice.</p></div>
+          <div class="project-card"><i class="fas fa-university"></i><h3>Gender & Inclusion Policy</h3><p>The Mwalimu Nyerere Memorial Academy / UNESCO (2023) – developed comprehensive gender and inclusion policy framework.</p></div>
+          <div class="project-card"><i class="fas fa-female"></i><h3>Intersectional Gender Analysis — DWABI</h3><p>Sustainable Agriculture Tanzania (SAT) 2021-2022 – analysis for women in agriculture & business initiatives.</p></div>
+          <div class="project-card"><i class="fas fa-chalkboard-user"></i><h3>Coaching LGAs on Gender-Sensitive Change</h3><p>ICLD & UNCDF (2021-2023) – mentoring local government authorities on inclusive project design.</p></div>
+          <div class="project-card"><i class="fas fa-apple-alt"></i><h3>Gender & Nutrition Research</h3><p>MANOF (2019) – research on intersection of gender dynamics and nutritional security.</p></div>
+          <div class="project-card"><i class="fas fa-chart-line"></i><h3>COVID-19 Impact Assessment</h3><p>ESRF (2020-2021) – cross-border business, wellbeing & economic resilience assessment.</p></div>
+        </div>
+        <div style="margin-top: 48px; text-align: center;">
+          <p><strong>Other clients & partners:</strong> USAID, HIVOS, CAMFED, DAI, ESRF, SAT, UNESCO, UNCDF, Judiciary of Tanzania, The Mwalimu Nyerere Memorial Academy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnerships & Collaborations -->
+    <section style="padding: 64px 0;">
+      <div class="container">
+        <div style="text-align: center;">
+          <h2 class="section-title">Trusted collaborations</h2>
+          <p>Working alongside international organizations, government institutions, and civil society for inclusive development</p>
+        </div>
+        <div class="partner-grid">
+          <span class="partner-item">Judiciary of Tanzania</span><span class="partner-item">UNESCO</span><span class="partner-item">UNCDF</span><span class="partner-item">USAID</span>
+          <span class="partner-item">HIVOS</span><span class="partner-item">ESRF</span><span class="partner-item">SAT</span><span class="partner-item">CAMFED</span>
+          <span class="partner-item">DAI</span><span class="partner-item">The Mwalimu Nyerere Memorial Academy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Office details -->
+    <section id="contact" class="bg-light" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="hero-badge">Get in touch</span>
+          <h2 class="section-title">Let’s work together</h2>
+          <p class="section-subtitle">Reach out for partnership, consultancy, or capacity development.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 48px; background: white; border-radius: 32px; padding: 40px; box-shadow: 0 12px 32px rgba(0,0,0,0.05);">
+          <div style="flex: 1;">
+            <h3><i class="fas fa-map-marker-alt text-accent"></i> Office location</h3>
+            <p>Plot No. 3, Block A, Iyovi Street, Tabata<br>Dar es Salaam, Tanzania</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:ihavedomi@gmail.com" style="color:#1e6f5c;">ihavedomi@gmail.com</a><br><i class="fas fa-envelope"></i> <a href="mailto:mwesiga.patricia@gmail.com" style="color:#1e6f5c;">mwesiga.patricia@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> +255 715 397758</p>
+            <p><i class="fas fa-mail-bulk"></i> P.O. Box 12103, Dar es Salaam, Tanzania</p>
+            <p><strong>Contact person:</strong> Dr. Patricia Mwesiga – Director</p>
+            <hr style="margin: 24px 0;">
+            <p><i class="fas fa-calendar-alt"></i> Established 2019 · Fully registered Tanzanian consulting firm</p>
+          </div>
+          <div style="flex: 1.2;">
+            <h3>Send a message</h3>
+            <form action="#" method="post">
+              <input type="text" placeholder="Your name" style="width:100%; padding: 14px; margin-bottom: 16px; border-radius: 40px; border:1px solid #dce5e0;">
+              <input type="email" placeholder="Email address" style="width:100%; padding: 14px; margin-bottom: 16px; border-radius: 40px; border:1px solid #dce5e0;">
+              <textarea rows="4" placeholder="Tell us about your project or inquiry" style="width:100%; padding: 14px; border-radius: 24px; border:1px solid #dce5e0;"></textarea>
+              <button type="submit" class="btn-primary" style="margin-top: 16px; width:100%;"><i class="fas fa-paper-plane"></i> Send inquiry</button>
+              <p style="font-size: 0.75rem; margin-top: 12px;">We’ll respond within 2 business days.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 style="color:white;">Dominion Consult</h3>
+          <p>Innovative & inclusive development solutions.<br>Research · Gender · Capacity strengthening · Data science</p>
+        </div>
+        <div class="contact-info">
+          <p><i class="fas fa-phone-alt"></i> +255 715 397758</p>
+          <p><i class="fas fa-envelope"></i> ihavedomi@gmail.com</p>
+          <p><i class="fas fa-location-dot"></i> Tabata, Dar es Salaam, Tanzania</p>
+        </div>
+        <div>
+          <p><strong>© 2026 Dominion Consult</strong><br>Committed to gender equality & sustainable transformation.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Empowering institutions and communities through evidence-based, participatory and gender-transformative approaches.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Simple smooth scroll & alert for demo
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if(targetId === "#" || targetId === "") return;
+        const target = document.querySelector(targetId);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    // optional contact note for demo
+    const contactForm = document.querySelector('form');
+    if(contactForm){
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for reaching out! Dominion Consult will get back to you soon.');
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
